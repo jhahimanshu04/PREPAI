@@ -281,6 +281,15 @@ export default function Home() {
 
   const handleGenerateReport = async () => {
     const resumeFile = resumeInputRef.current.files[0];
+    if (!jobDescription) {
+    alert("Job description is required");
+    return;
+  }
+
+  if (!resumeFile && !selfDescription) {
+    alert("Please provide either resume or self description");
+    return;
+  }
     const data = await generateReport({ jobDescription, selfDescription, resumeFile });
     console.log("Report data:", data);
     if (data?.id) {
