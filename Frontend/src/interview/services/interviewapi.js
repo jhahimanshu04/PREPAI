@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL:"https://prepai-hliu.onrender.com"
+  baseURL:"https://prepai-hliu.onrender.com",
   withCredentials: true,
 });
 
