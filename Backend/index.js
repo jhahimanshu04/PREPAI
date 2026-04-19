@@ -28,7 +28,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-sequelize.sync({ force:true , alter: true })
+sequelize.sync({ force:false , alter: true })
   .then(() => {
     console.log("Tables synced");
     app.listen(port, () => {
