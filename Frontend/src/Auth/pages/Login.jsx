@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import login from "../services/authApi.js"
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,8 +20,8 @@ export default function Login() {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post("/api/auth/login", form);
-      localStorage.setItem("token", res.data.token);
+      await login(form); 
+      navigate("/")
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong. Try again.");
